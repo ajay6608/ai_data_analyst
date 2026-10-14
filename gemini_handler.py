@@ -18,7 +18,7 @@ from profiler import get_dataframe_context_for_llm
 # one, we read it from .env so a future deprecation only needs a one-line
 # change there instead of editing this file. Defaults to the current stable
 # model as of July 2026.
-DEFAULT_MODEL = "gemini-3.5-flash"
+DEFAULT_MODEL = "gemini-3.5-flash-lite"
 
 
 def _get_model():
