@@ -118,10 +118,11 @@ if "df" in st.session_state:
                     st.write("**Insight:**")
                     st.success(insight)
 
-                except UnsafeCodeError as e:
-                    st.error(f"Blocked unsafe code: {e}")
                 except Exception as e:
-                    st.error(f"Something went wrong: {e}")
+                    if "429" in str(e) or "quota" in str(e).lower():
+                        st.warning("The demo is busy right now because of the free API limit. Please wait about a minute and try again.")
+                    else:
+                        st.error(f"Something went wrong: {e}")
 
     st.divider()
     if st.button("Clear data and start over"):
